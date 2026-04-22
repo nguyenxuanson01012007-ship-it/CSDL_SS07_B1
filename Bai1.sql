@@ -1,7 +1,5 @@
-SELECT  city, 
-		SUM(total_price) AS revenue
-FROM bookings
-WHERE status = 'COMPLETED'
-GROUP BY city
-HAVING SUM(total_price) > 0;
--- lỗi vì WHERE được thực thi trước GROUP BY, nên các giá trị tổng hợp như SUM() chưa được tính toán. 
+SELECT title, price
+from courses 
+WHERE price IN (SELECT price FROM courses WHERE instructor_id = 5);
+
+-- Không dùng dấu =  vì dấu = trả về 1 giá trị duy nhất 
